@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "Bookmarks on Steroids",
+  "description": "This extension allows you to save bookmarks, in a more organized matter.  With Catagories and comments",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "bookmarksimage.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
