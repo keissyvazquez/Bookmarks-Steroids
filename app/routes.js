@@ -5,10 +5,6 @@ var router = express.Router();
 
 module.exports = function(app, passport) {
 
-    app.get('/', function(req, res) {
-        res.render('index.html'); 
-    });
-
 
     app.get('/login', function(req, res) {
         res.render('login.html', { message: req.flash('loginMessage') }); 
@@ -24,10 +20,6 @@ module.exports = function(app, passport) {
         });
     });
 
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
 };
 
 function isLoggedIn(req, res, next) {
