@@ -2,16 +2,42 @@
 <html>
     <link rel="stylesheet" href="../public/assets/css/normalize.css"> <!-- load normalize css -->
     <link rel="stylesheet" href="../public/assets/css/style.css"> <!-- load style -->
+    <link rel="stylesheet" href="../public/assets/css/PersonalizeStyle.css"> <!-- load style -->
+
     <style type="text/css">
       #formGroupExampleInput{ 
             width: 600px;
        }
       html{ 
         padding-right: 10px;
-        padding-left: 10px;
+        padding-left: 19px;
         padding-bottom: 32px;
         padding-top: 5px;
        }
+      #enterDescription{ 
+        height: 123px;
+        width: 600px;
+       }
+      h1{ 
+        text-align: center;
+       }
+      #descriptionBox{ 
+        width: 500px;
+        height: 200px;
+       }
+   body {
+    height: 100%;
+    background-image: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg");
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: -webkit-linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
+    background: -webkit-gradient(linear, 45deg, from(rgba(29, 236, 197, 0.4)), to(rgba(96, 0, 136, 0.4)));
+    background: linear-gradient(to 45deg, rgba(29, 236, 197, 0.4), rgba(96, 0, 136, 0.4) 100%); 
+
+}
 
     </style>
 <head>
@@ -27,16 +53,26 @@
   <form>
   <div class="form-group">
     <label for="formGroupExampleInput">Save Bookmark</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter URL">
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter">
   </div>
 
 </form>
+   <br>
+        <label for="formGroupExampleInput">Enter Description: </label>
 
-
-
-  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Catagories</label>
+      <div class="widget-area no-padding blank">
+                <div class="status-upload">
+                  <form>
+                    <textarea id="descriptionBox" placeholder="Description..." ></textarea>
+               
+                  </form>
+                </div><!-- Status Upload  -->
+              </div><!-- Widget Area -->
+            </div>
+      <br>
+<div id="categoriesAlign">  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Catagories</label>
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-    <option selected>Choose...</option>
+    <option id="catagoriesAlign" selected>Choose...</option>
 
     <option value="1">Work</option>
     <option value="2">School</option>
@@ -47,9 +83,8 @@
     <option value="3">Birthday Gifts</option>
 
   </select>
-
-
-  <button type="submit" class="btn btn-primary my-1">Submit</button>
+</div>
+        <button type="submit" class="btn btn-warning btn-lg">Submit</button>
 </form>
 </body>
 </html>
