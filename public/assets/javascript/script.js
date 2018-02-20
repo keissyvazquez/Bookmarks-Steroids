@@ -12,3 +12,8 @@
 
 
   }); 
+
+  $("#signup").on("click", function(){ 
+  	location.href = "/signup.html"
+
+  })
