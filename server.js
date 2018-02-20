@@ -31,6 +31,7 @@ router.get('/users/post', userRoutes.postAll);
 router.get('/users/id/post', userRoutes.putUserID);
 router.get('/users/id/delete', userRoutes.deleteUserID);
 	//url routes 
+router.get('/users/id/bookmarks', userRoutes.getBookmark);
 
 
 // End Work
