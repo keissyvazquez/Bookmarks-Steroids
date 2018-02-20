@@ -26,3 +26,8 @@ exports.deleteUserID = function(req,res){
     router.delete('/users/id/delete');
           res.json({ message: 'Oh, bye user/id' });
 }
+
+exports.getBookmark = function(req,res){
+    router.get('/users/id/bookmarks');
+          res.json({ message: 'Oh, ALL Bookmarks' });
+}
