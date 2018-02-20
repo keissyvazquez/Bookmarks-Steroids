@@ -1,5 +1,7 @@
 var express    = require("express");
 var login = require('./routes/loginroutes');
+var userRoutes = require('./routes/userroutes');
+var urlRoutes = require('./routes/urlRoutes');
 var register = require('./routes/register');
 var bodyParser = require('body-parser');
 var app = express();
@@ -19,6 +21,19 @@ router.get('/', function(req, res) {
 });
 //route to handle user registration
 router.post('/register',login.register);
-router.post('/login',login.login)
+router.post('/login',login.login);
+
+// Work goes here
+	//user routes 
+router.get('/users', userRoutes.getAll);
+router.get('/users/id', userRoutes.getUserID);
+router.get('/users/post', userRoutes.postAll);
+router.get('/users/id/post', userRoutes.putUserID);
+router.get('/users/id/delete', userRoutes.deleteUserID);
+	//url routes 
+
+
+// End Work
+
 app.use('/api', router);
 app.listen(5000);
