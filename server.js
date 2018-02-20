@@ -1,7 +1,6 @@
 var express    = require("express");
 var login = require('./routes/loginroutes');
 var userRoutes = require('./routes/userroutes');
-var urlRoutes = require('./routes/urlRoutes');
 var register = require('./routes/register');
 var bodyParser = require('body-parser');
 var app = express();
@@ -26,12 +25,13 @@ router.post('/login',login.login);
 // Work goes here
 	//user routes 
 router.get('/users', userRoutes.getAll);
-router.get('/users/id', userRoutes.getUserID);
+router.get('/users/:id', userRoutes.getUserID);
 router.get('/users/post', userRoutes.postAll);
-router.get('/users/id/post', userRoutes.putUserID);
-router.get('/users/id/delete', userRoutes.deleteUserID);
+router.get('/users/:id/post', userRoutes.putUserID);
+router.get('/users/:id/delete', userRoutes.deleteUserID);
+
 	//url routes 
-router.get('/users/id/bookmarks', userRoutes.getBookmark);
+router.get('/users/:id/url', userRoutes.getBookmark);
 
 
 // End Work

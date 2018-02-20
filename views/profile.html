@@ -1,453 +1,55 @@
-
-
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-  <link rel="dns-prefetch" href="https://assets-cdn.github.com">
-  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
-  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
-
-<meta content="origin-when-cross-origin" name="referrer" />
-
-  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-7a12427f1445.css" integrity="sha512-ehJCfxRFqU8Lt/+Hwc4cvp41sPisCp1U2d03SlbM3aKVZcxiYDTVmBsAtOVgAtZ912JFOebwrPXr/JcDNd6bGA==" media="all" rel="stylesheet" />
-  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-b711cfd662b2.css" integrity="sha512-txHP1mKy8TdPpybOBrgYwUYi4H3dxazpxKcQIwZvmdaxrd/CnXzKcabQLAIwJms4lFpXDBZ8IzLjsSMYzjcgig==" media="all" rel="stylesheet" />
-  
-  <link rel="stylesheet" href="../public/assets/css/normalize.css"> <!-- load normalize css -->
+<html>
+    <link rel="stylesheet" href="../public/assets/css/normalize.css"> <!-- load normalize css -->
     <link rel="stylesheet" href="../public/assets/css/style.css"> <!-- load style -->
-  
-  <style type="text/css">
+    <style type="text/css">
+      #formGroupExampleInput{ 
+            width: 600px;
+       }
+      html{ 
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-bottom: 32px;
+        padding-top: 5px;
+       }
 
-  		.pinned-bookmark-item-content{ 
-  			position: absolute;
+    </style>
+<head>
+  <title>
+    Bookmarks on Steroids
+  </title>
+  <h1 class="display-1">Bookmarks on Steroids</h1>
+</head>
+<body>
 
-  		 }
-  		h1{ 
-	  		padding-bottom: 29px;
-		    padding-top: 29px;
-		    padding-left: 30px;
-  		}
-  		.UnderlineNav-item.selected{ 
-  			border-bottom-color: gray;
-  		 }
+<form class="form-inline">
 
-  		#searchheader{ 
-  		 	background-color: #17679c;
-  		 	margin-left: 291px;
-   			margin-top: 49px;
-  		  }
-  		#SearchBookmarks{ 
-			margin-left: 291px;
-   			margin-top: 49px;
-  		  
-  		 }
-  		#Headerfull{ 
-  		   background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfVmAknIPDhj60nZ0GMTCZvK-bhsmgRNhv25S8smOZecb9cxr9AA);
-		   background-repeat: no-repeat;
-		   width: 281px;
-		   height: 179px; 
-
-  		}
-	  	body {
-	    	min-width: 779px;
-	    	word-wrap: break-word;
-		}
-  </style>
-  
-
-  <meta name="viewport" content="width=device-width">
-  
-  <title>keissyleonardo (Keissy Leonardo)</title>
-  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-  <meta property="fb:app_id" content="1401488693436528">
-
-    
-    <meta content="https://avatars0.githubusercontent.com/u/30710494?s=400&amp;v=4" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="profile" property="og:type" /><meta content="keissyleonardo (Keissy Leonardo)" property="og:title" /><meta content="https://github.com/keissyleonardo" property="og:url" /><meta content="keissyleonardo has 17 bookmarksitories available. Follow their code on GitHub." property="og:description" /><meta content="keissyleonardo" property="profile:username" />
-
-  <link rel="assets" href="https://assets-cdn.github.com/">
-  <link rel="web-socket" href="wss://live.github.com/_sockets/VjI6MjQ5NzQ5NDg1Ojk4ODgwMzBlNmQ2ZjM1MWM4MjNmODFiZjFkZDI0NTk0ZGM2ODExNTRhMzkwMDZlYWEwMTU3NTUzY2M5NGI5MjQ=--576358511c8f96b1b94934248be733c53ed4ea00">
-  <meta name="pjax-timeout" content="1000">
-  <link rel="sudo-modal" href="/sessions/sudo_modal">
-  <meta name="request-id" content="CC88:6EF7:2559715:4A87AFC:5A8B3CBC" data-pjax-transient>
-  
-
-  <meta name="selected-link" value="/keissyleonardo" data-pjax-transient>
-
-    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
-  <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
-  <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
-    <meta name="google-analytics" content="UA-3769691-2">
-
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="https://collector.githubapp.com/github-external/browser_event" name="octolytics-event-url" /><meta content="CC88:6EF7:2559715:4A87AFC:5A8B3CBC" name="octolytics-dimension-request_id" /><meta content="iad" name="octolytics-dimension-region_edge" /><meta content="iad" name="octolytics-dimension-region_render" /><meta content="30710494" name="octolytics-actor-id" /><meta content="keissyleonardo" name="octolytics-actor-login" /><meta content="54f2bddbb094bc00ca779bce7209172a28c00f404cfb2cdd565d9239fe2b94b3" name="octolytics-actor-hash" />
-<meta content="https://github.com/hydro_browser_events" name="hydro-events-url" />
-<meta content="/&lt;user-name&gt;" data-pjax-transient="true" name="analytics-location" />
-
-
-
-
-  <meta class="js-ga-set" name="dimension1" content="Logged In">
-
-
-  
-
-      <meta name="hostname" content="github.com">
-    <meta name="user-login" content="keissyleonardo">
-
-      <meta name="expected-hostname" content="github.com">
-    <meta name="js-proxy-site-detection-payload" content="NDc0MGIzZjVmZjU2YWU5ZjkwYTk5YmMyMDE3OTFlOWFiMzZkM2U0YWJkMDg3ZGQ1ZWMxMzdhNjQ5NDBmMzJiN3x7InJlbW90ZV9hZGRyZXNzIjoiMjA3LjI0Mi4xMDYuMjE4IiwicmVxdWVzdF9pZCI6IkNDODg6NkVGNzoyNTU5NzE1OjRBODdBRkM6NUE4QjNDQkMiLCJ0aW1lc3RhbXAiOjE1MTkwNzQ0OTIsImhvc3QiOiJnaXRodWIuY29tIn0=">
-
-    <meta name="enabled-features" content="UNIVERSE_BANNER,FREE_TRIALS,MARKETPLACE_HERO_CARD_UPLOADER,MARKETPLACE_INSIGHTS,MARKETPLACE_INSIGHTS_CONVERSION_PERCENTAGES">
-
-  <meta name="html-safe-nonce" content="edad06f7be6bc26255e1dbdc9812509e1fa59f50">
-
-  <meta http-equiv="x-pjax-version" content="82c78d823a9137821d718084ac1954cf">
-  
-
-      <link href="/keissyleonardo.atom" rel="alternate" title="atom" type="application/atom+xml">
-  <meta name="description" content="keissyleonardo has 17 bookmarksitories available. Follow their code on GitHub.">
-  <meta content="30710494" name="octolytics-dimension-user_id" /><meta content="keissyleonardo" name="octolytics-dimension-user_login" />
-
-
-
-
-  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
-
-  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
-
-  <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#000000">
-  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://assets-cdn.github.com/favicon.ico">
-
-<meta name="theme-color" content="#1e2327">
-
-
-  <meta name="u2f-support" content="true">
-
-<link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
-
-  </head>
-
-  <body class="logged-in env-production page-profile mine">
-    
-
-  <div class="position-relative js-header-wrapper ">
-    <a href="#start-of-content" tabindex="1" class="bg-black text-white p-3 show-on-focus js-skip-to-content">Skip to content</a>
-    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
-
-    
-    
-    
-
-
-
-        
-<header class="Header  f5" role="banner" id='Headerfull'>
-  <div class="d-flex px-3 flex-justify-between container-lg">
-    <div class="d-flex flex-justify-between ">
-      <div class="">
-        <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
-
-      </div>
-
-    </div>
-
-    <div class="HeaderMenu d-flex flex-justify-between flex-auto" style='margin-top: -39px;'>
-      <div class="d-flex">
-            <div class="">
-              <div class="header-search   js-site-search" role="search">
-  <!-- '"` --><!-- </textarea></xmp> --></option></form><form accept-charset="UTF-8" action="/search" class="js-site-search-form" data-unscoped-search-url="/search" method="get"><div><input name="utf8" type="hidden" value="&#x2713;" /></div>
-    <label class="form-control header-search-wrapper js-chromeless-input-container" id='searchheader' >
-        <a href="/keissyleonardo" class="header-search-scope no-underline">/keissyleonardo</a>
-      <input type="text"
-        class="form-control header-search-input js-site-search-focus  "
-        id='SearchBookmarks'
-        data-hotkey="s"
-        name="q"
-        value=""
-        placeholder="Search Bookmarks"
-        aria-label="Search Bookmarks"
-        data-unscoped-placeholder="Search Bookmarks"
-        data-scoped-placeholder="Search"
-        autocapitalize="off"
-        style='margin-top: -89px;'>
-        <input type="hidden" class="js-site-search-type-field" name="type" >
-    </label>
-</form></div>
-
-            </div>
-
-       
-      </div>
-
-      <div class="d-flex">
-        
-<ul class="user-nav d-flex flex-items-center list-style-none" id="user-links">
-  <li class="dropdown js-menu-container">
-    <span class="d-inline-block  px-2">
-      
-
-    </span>
-  </li>
-
-
-
-
-
-
-    </details>
-  </li>
-
-
-
-
-</header>
-
-      
-
+  <form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Save Bookmark</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter URL">
   </div>
-
-  <div id="start-of-content" class="show-on-focus"></div>
-
-    <div id="js-flash-container">
-</div>
-
-
-
-  <div role="main" class="application-main ">
-      
-      <div id="js-pjax-container" data-pjax-container>
-        
-
-
-
-  <div class="h-card col-3 float-left pr-3" itemscope itemtype="http://schema.org/Person">
-<!-- 
-    <div class="user-profile-sticky-bar js-user-profile-sticky-bar">
-      <div class="user-profile-mini-vcard d-table">
-        <span class="user-profile-mini-avatar d-table-cell v-align-middle lh-condensed-ultra pr-2"> -->
-
- 
-          
-
-
-        </span>
-      </div>
-    </div>
-	  <h1 class="vcard-names">
-    <span class="p-name vcard-fullname d-block" itemprop="name">Keissy Leonardo</span>
-  </h1>
-</div>
-
-
-
-
-
-
-
-
-<ul class="vcard-details border-top border-gray-light py-3">
-
-
-
-  
-</ul>
-
-
-  </div>
-
-  <div class="col-9 float-left pl-2">
-
-
-    <div class="UnderlineNav user-profile-nav js-sticky top-0">
-      <nav class="UnderlineNav-body" data-pjax role="navigation">
-        <a href="/keissyleonardo"
-          class="UnderlineNav-item selected"
-          aria-selected="true"
-          role="tab"
-          title="Overview">
-          List of Catagories
-        </a>
-     
-
-
-      
-
-      </nav>
-    </div>
-
-    <div class="position-relative">
-        
-
-
-
-        <p class="mb-0 f6 text-gray">
-       
-      </span>
-    </li>
-    <li class="pinned-bookmark-item p-3 mb-3 border border-gray-dark rounded-1 public source">
-      <span class="pinned-bookmark-item-content">
-        <span class="d-block">
-            <a href="/keissyleonardo/Basic-Portfolio" class="text-bold">
-           <span class="bookmark js-bookmark" title="Basic-Portfolio">Cooking</span>
-           
-            </a>
-        </span>
-
-
-        <p class="pinned-bookmark-desc text-gray text-small d-block mt-2 mb-3"></p>
-
-       
-      </span>
-    </li>
-    <li class="pinned-bookmark-item p-3 mb-3 border border-gray-dark rounded-1 public source">
-      <span class="pinned-bookmark-item-content">
-        <span class="d-block">
-            <a href="/keissyleonardo/Responsive-Portfolio" class="text-bold">
-           <span class="bookmark js-bookmark" title="Responsive-Portfolio">School</span>
-            </a>
-        </span>
-
-
-        <p class="pinned-bookmark-desc text-gray text-small d-block mt-2 mb-3"></p>
-
-      </span>
-    </li>
-    <li class="pinned-bookmark-item p-3 mb-3 border border-gray-dark rounded-1 public source">
-      <span class="pinned-bookmark-item-content">
-        <span class="d-block">
-            <a href="/keissyleonardo/Bootstrap-Portfolio" class="text-bold">
-           <span class="bookmark js-bookmark" title="Bootstrap-Portfolio">Work</span>
-            </a>
-        </span>
-
-
-        <p class="pinned-bookmark-desc text-gray text-small d-block mt-2 mb-3"></p>
-
-  
-      </span>
-    </li>
-    <li class="pinned-bookmark-item p-3 mb-3 border border-gray-dark rounded-1 public source">
-      <span class="pinned-bookmark-item-content">
-        <span class="d-block">
-            <a href="/keissyleonardo/Week-4-Game" class="text-bold">
-           <span class="bookmark js-bookmark" title="Week-4-Game">Personal</span>
-            </a>
-        </span>
-
-
-        <p class="pinned-bookmark-desc text-gray text-small d-block mt-2 mb-3"></p>
-
-      
-      </span>
-    </li>
-    <li class="pinned-bookmark-item p-3 mb-3 border border-gray-dark rounded-1 public source">
-      <span class="pinned-bookmark-item-content">
-        <span class="d-block">
-            <a href="/keissyleonardo/Hangman-Game" class="text-bold">
-           <span class="bookmark js-bookmark" title="Hangman-Game">Hangman-Game</span>
-            </a>
-        </span>
-
-
-        <p class="pinned-bookmark-desc text-gray text-small d-block mt-2 mb-3"></p>
-
-      
-      </span>
-    </li>
-</ol>
-
-</div>
-
-  
-
-      </div>
-      
-
-
-     
-
-
-
-          </span>
-
-
-
-
-
-
-
-
-
-  </div>
-</div>
 
 </form>
 
 
-  </div>
 
-</div>
+  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Catagories</label>
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+    <option selected>Choose...</option>
 
-  <div id="pinned-bookmarks-modal-wrapper"></div>
+    <option value="1">Work</option>
+    <option value="2">School</option>
+    <option value="3">Cooking</option>
+    <option value="3">Kids</option>
+    <option value="3">Family</option>
+    <option value="3">Christmas Gifts</option>
+    <option value="3">Birthday Gifts</option>
 
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="modal-backdrop js-touch-events"></div>
-  </div>
-
-<!--       
-<div class="footer container-lg px-3" role="contentinfo">
-  <div class="position-relative d-flex flex-justify-between py-6 mt-6 f6 text-gray border-top border-gray-light ">
-    <ul class="list-style-none d-flex flex-wrap ">
-      
-    </ul>
+  </select>
 
 
-    <ul class="list-style-none d-flex flex-wrap ">
-       
-
-    </ul>
-  </div>
-</div> -->
-
-
-
-  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
-    <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M8.865 1.52c-.18-.31-.51-.5-.87-.5s-.69.19-.87.5L.275 13.5c-.18.31-.18.69 0 1 .19.31.52.5.87.5h13.7c.36 0 .69-.19.86-.5.17-.31.18-.69.01-1L8.865 1.52zM8.995 13h-2v-2h2v2zm0-3h-2V6h2v4z"/></svg>
-    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
-      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"/></svg>
-    </button>
-    You can't perform that action at this time.
-  </div>
-
-
-    
-    <script crossorigin="anonymous" integrity="sha512-wCiQbNHIz6R9xWhc8kuUtzTjjK5i+8EIORxaoPuh//mQzLYF41CkYAfS7ohddvlSWJN2lcmF+i/4cX8i4FeqEg==" src="https://assets-cdn.github.com/assets/frameworks-c028906cd1c8.js" type="application/javascript"></script>
-    
-    <script async="async" crossorigin="anonymous" integrity="sha512-3oWePu0n+YNZ/3ck4Ox7B0DUgR/FSHzRJGd9lLJwfYyG2EXb1aKiS4O2PXR63lNXPO3EPkRTjkl5oe35Q6xZtA==" src="https://assets-cdn.github.com/assets/github-de859e3eed27.js" type="application/javascript"></script>
-    
-    
-    
-    
-  
-  <div class="facebox" id="facebox" style="display:none;">
-  <div class="facebox-popup">
-    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
-    </div>
-    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
-
-  </div>
-</div>
-
-  
-
-  </body>
+  <button type="submit" class="btn btn-primary my-1">Submit</button>
+</form>
+</body>
 </html>
