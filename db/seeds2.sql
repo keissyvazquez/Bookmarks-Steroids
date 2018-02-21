@@ -1,0 +1,1 @@
+INSERT INTO urls(url, description, category, tags) VALUES ('www.domain.com', 'relates to mysql', 'School', 'mysql'), ('www.express.com', 'relates to express', 'School', 'express'), ('www.life.com', 'relates to life', 'Personal', 'life'), ('www.pasta.com', 'relates to pasta', 'Cooking', 'pasta'); 

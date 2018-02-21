@@ -1,29 +1,38 @@
-exports.getAll = function(req,res){
-  res.send(req.params.users); 
-  res.json({ message: 'Oh, hey users' });
-}
+// exports.getAll = function(req,res){
+//     res.json({ message: 'getAll' });
+// }
 
-exports.getUserID = function(req,res){
-  res.send(req.params.id); 
-  res.json({ message: 'Oh, hey users & ids!' });
-}
+// exports.getUserID = function(req,res){
+//     res.json({ message: 'getUserID' });
+// }
 
-exports.postAll = function(req,res){
-  
-  res.json({ message: 'Oh! Hey new user!' });
-}
+// exports.postAll = function(req,res){
+//     res.json({ message: 'postAll' });
+// }
 
-exports.putUserID = function(req,res){
-  
-  res.json({ message: 'Oh, putting new user/id' });
-}
+// exports.putUserID = function(req,res){
+//     res.json({ message: 'putUserID' });
+// }
 
-exports.deleteUserID = function(req,res){
-  
-  res.json({ message: 'Oh, bye user/id' });
-}
+// exports.deleteUserID = function(req,res){
+//     res.json({ message: 'deleteUserID' });
+// }
 
-exports.getBookmark = function(req,res){
-  res.send(req.params.url); 
-  res.json({ message: 'Oh, ALL Bookmarks' });
-}
+// exports.getAllBookmarks = function(req,res){
+//     res.json({ message: 'getAllBookmarks' });
+// }
+
+// exports.getOneBookmark = function(req,res){ 
+//   res.json({ message: 'get one bookmark' });
+// }
+
+// exports.postBookmark = function(req,res){ 
+//   res.json({ message: 'postBookmark' });
+// }
+// exports.putBookmarks = function(req,res){ 
+//   res.json({ message: 'putBookmarks' });
+// }
+
+// exports.deleteBookmark = function(req,res){ 
+//   res.json({ message: 'deleteBookmark' });
+// }

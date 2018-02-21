@@ -1,17 +1,4 @@
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'Welcome01*',
-  database : 'bookmarks'
-});
-connection.connect(function(err){
-if(!err) {
-    console.log("Database is connected ... nn");
-} else {
-    console.log("Error connecting database ... nn");
-}
-});
+var database = require('../server.js')
 
 exports.register = function(req,res){
   // console.log("req",req.body);
