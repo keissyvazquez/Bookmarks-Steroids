@@ -60,7 +60,7 @@ router.get('/users/:id', function(req, res){
 });
 
 // add new user
-app.post('/users', function (req, res) {
+router.post('/users', function (req, res) {
    var postData  = req.body;
    connection.query('INSERT INTO users SET ?', postData, function (error, results, fields) {
    if (error) throw error;
@@ -70,15 +70,20 @@ app.post('/users', function (req, res) {
 
 
 // // to update user
-app.put('/users', function (req, res) {
-   connection.query('UPDATE `users` SET `first_name`=?,`last_name`=?,`email`=?,`password`=? where `id`=?', [req.body.first_name,req.body.last_name, req.body.email, req.body.password, req.body.id], function (error, results, fields) {
+router.put('/users/:id', function (req, res) {
+	console.log("Putting new user data");
+	console.log(req.params);
+	console.log(req.body);
+   connection.query('UPDATE `users` SET `first_name`=?,`last_name`=?,`email`=?,`password`=? where `id`=?', [req.body.first_name,req.body.last_name, req.body.email, req.body.password, req.params.id], function (error, results, fields) {
    if (error) throw error;
    res.end(JSON.stringify(results));
  });
 });
 
+
+
 // router.delete('/users/:id', userRoutes.deleteUserID);
-app.delete('/users/:id', function (req, res) {
+router.delete('/users/:id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `users` WHERE `id`=?', [req.params.id], function (error, results, fields) {
    if (error) throw error;
@@ -107,16 +112,36 @@ router.get('/urls/:url_id', function(req, res){
 
 // // add new bookmark
 // router.post('/users/bookmarks', userRoutes.postBookmark);
+router.post('/urls', function (req, res) {
+   var postData  = req.body;
+   connection.query('INSERT INTO urls SET ?', postData, function (error, results, fields) {
+   if (error) throw error;
+   res.end(JSON.stringify(results));
+ });
+});
+
 
 // // to update bookmark
 // router.put('/users/:id/bookmarks/:bookmarks', userRoutes.putBookmarks);
+router.put('/urls/:url_id', function (req, res) {
+	console.log("Putting new urls data");
+	console.log(req.params);
+	console.log(req.body);
+   connection.query('UPDATE `urls` SET `url`=?,`description`=?,`category`=?,`tags`=? where `id`=?', [req.body.url,req.body.description, req.body.category, req.body.tags, req.params.id], function (error, results, fields) {
+   if (error) throw error;
+   res.end(JSON.stringify(results));
+ });
+});
+
+
+
 // //delete a bookmark
 // router.delete('/users/:id/bookmarks/:bookmarks', userRoutes.deleteBookmark);
-app.delete('/urls/:url_id', function (req, res) {
+router.delete('/urls/:url_id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `urls` WHERE `url_id`=?', [req.params.url_id], function (error, results, fields) {
    if (error) throw error;
-   res.end('User has been deleted!');
+   res.end('Url has been deleted!');
  });
 });
 
