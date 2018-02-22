@@ -19,7 +19,25 @@ var express    = require("express");
 var login = require('./routes/loginroutes');
 var register = require('./routes/register');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var BasicStrategy = require('passport-http').BasicStrategy;
 var app = express();
+
+var validPassword = function(user, password) {
+  return user.password === password;
+}
+
+passport.use(new BasicStrategy(function(username, password, done) {
+    console.log("In here working");
+    console.log(username + " and " + password);
+    connection.query('select * from users where email=?', username, function (error, results, fields){
+      if (error) { return done(error); }
+      if (results.length === 0) { return done(null, false,  { message: 'Invalid email, user does not exist' }); }
+      if (!validPassword(results[0], password)) { return done(null, false,  { message: 'Invalid password' }); }
+      return done(null, results[0]);
+    });
+  }
+));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,7 +59,8 @@ router.post('/login',login.login);
 // API routes starts here
 
 	//user routes
-router.get('/users', function(req, res){
+router.get('/users',
+            function(req, res) {
 	connection.query('select * from users', function (error, results, fields){
     if (error){
       res.status(500).json({message:"Internal server error"});
@@ -191,5 +210,5 @@ router.delete('/urls/:url_id', function (req, res) {
 
 
 
-app.use('/api', router);
+app.use('/api', passport.authenticate('basic', { session: false }), router);
 app.listen(5000);
