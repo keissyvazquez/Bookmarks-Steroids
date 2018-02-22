@@ -43,8 +43,12 @@ router.post('/login',login.login);
 	//user routes
 router.get('/users', function(req, res){
 	connection.query('select * from users', function (error, results, fields){
-		if (error) throw error;
-		res.end(JSON.stringify(results));
+    if (error){
+      res.status(500).json({message:"Internal server error"});
+    }
+    else{
+      res.json(results);
+    }
 	})
 });
 
@@ -52,10 +56,15 @@ router.get('/users', function(req, res){
 	//user id
 router.get('/users/:id', function(req, res){
 	connection.query('select * from users where id=?', [req.params.id], function (error, results, fields){
-    if (results.length === 0)
+    if (error){
+      res.status(500).json({message:"Internal server error"});
+    }
+    else if (results.length === 0){
       res.status(404).json({message: "The item does not exist"});
-    else
+    }
+    else{
       res.json(results[0]);
+    }
 	})
 
 });
@@ -64,8 +73,13 @@ router.get('/users/:id', function(req, res){
 router.post('/users', function (req, res) {
    var postData  = req.body;
    connection.query('INSERT INTO users SET ?', postData, function (error, results, fields) {
-   if (error) throw error;
-   res.end(JSON.stringify(results));
+     if (error){
+        res.status(500).json({message:"Internal server error"});
+      }
+     else {
+        res.append('Location', '/api/users/' + results.insertId);
+        res.status(201).json({message: "The user was successfully created"});
+      }
  });
 });
 
@@ -76,8 +90,12 @@ router.put('/users/:id', function (req, res) {
 	console.log(req.params);
 	console.log(req.body);
    connection.query('UPDATE `users` SET `first_name`=?,`last_name`=?,`email`=?,`password`=? where `id`=?', [req.body.first_name,req.body.last_name, req.body.email, req.body.password, req.params.id], function (error, results, fields) {
-   if (error) throw error;
-   res.end(JSON.stringify(results));
+   if (error) {
+     res.status(500).json({message:"Internal server error"});
+   }
+   else {
+    res.status(200).json(results[0]);
+    }
  });
 });
 
@@ -87,26 +105,40 @@ router.put('/users/:id', function (req, res) {
 router.delete('/users/:id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `users` WHERE `id`=?', [req.params.id], function (error, results, fields) {
-   if (error) throw error;
-   res.end('User has been deleted!');
+   if (error) {
+     res.status(500).json({message:"Internal server error"});
+   }
+   else{
+    res.end('User has been deleted!');
+    }
  });
 });
 
-	// to delete urls
-router.get('/urls', function(req, res){
-	connection.query('select * from urls', function (error, results, fields){
-		if (error) throw error;
-		res.end(JSON.stringify(results));
-	})
-});
+	// to get all urls
+  router.get('/urls', function(req, res){
+  	connection.query('select * from urls', function (error, results, fields){
+      if (error){
+        res.status(500).json({message:"Internal server error"});
+      }
+      else{
+        res.json(results);
+       }
+  	})
+  });
+
 
 	// to get urls
 router.get('/urls/:url_id', function(req, res){
 	connection.query('select * from urls where url_id=?', [req.params.url_id], function (error, results, fields){
-    if (results.length === 0)
-      res.status(404).json({message: "The item does not exist"});
-    else
+    if (error){
+      res.status(500).json({message:"Internal server error"});
+    }
+    else if (results.length === 0){
+      res.status(404).json({message: "The does not exist"});
+    }
+    else{
       res.json(results[0]);
+     }
 	})
 
 });
@@ -115,8 +147,13 @@ router.get('/urls/:url_id', function(req, res){
 router.post('/urls', function (req, res) {
    var postData  = req.body;
    connection.query('INSERT INTO urls SET ?', postData, function (error, results, fields) {
-   if (error) throw error;
-   res.end(JSON.stringify(results));
+   if (error) {
+     res.status(500).json({message:"Internal server error"});
+   }
+   else{
+     res.append('Location', '/api/urls/' + results.insertId);
+     res.status(201).json({message: "The url was successfully added"});
+    }
  });
 });
 
@@ -127,8 +164,12 @@ router.put('/urls/:url_id', function (req, res) {
 	console.log(req.params);
 	console.log(req.body);
    connection.query('UPDATE `urls` SET `url`=?,`description`=?,`category`=?,`tags`=? where `id`=?', [req.body.url,req.body.description, req.body.category, req.body.tags, req.params.id], function (error, results, fields) {
-   if (error) throw error;
-   res.end(JSON.stringify(results));
+   if (error) {
+     res.status(500).json({message:"Internal server error"});
+   }
+   else{
+    res.status(200).json(results[0]);
+    }
  });
 });
 
@@ -138,8 +179,12 @@ router.put('/urls/:url_id', function (req, res) {
 router.delete('/urls/:url_id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `urls` WHERE `url_id`=?', [req.params.url_id], function (error, results, fields) {
-   if (error) throw error;
-   res.end('Url has been deleted!');
+   if (error) {
+     res.status(500).json({message:"Internal server error"});
+   }
+   else{
+    res.end('Url has been deleted!');
+    }
  });
 });
 
