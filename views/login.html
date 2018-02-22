@@ -10,6 +10,7 @@
             height: 96%;
             width: 537px;
             margin: inherit;
+            background-color: black;
       }
         .signin-wrapper{ 
             text-align: center;
@@ -25,6 +26,7 @@
           width: 142px;
           bottom: 41px;
           left: 198px;
+          color: #ff009b;
        }
 
        .fieldsetclass { 
@@ -46,13 +48,30 @@
          h1 {
             text-align: center;
             font-weight: 10;
+            color: #ff009b;
         }
         html { 
               height: 290px;  
 
 
          }
-
+        .btn-warning {
+          color: #fff;
+          background-color: #ff009b;
+          border-color: #ff009b;
+        }
+        label { 
+          color: white;
+         }
+         legend{ 
+            color: white;
+          }
+          p{ 
+            color: white;
+          }
+          a{ 
+            color:#ff009b;
+           }
     </style>
 </head>
     
@@ -88,9 +107,9 @@
         <div class="form-group">
             <label>Password</label>
             <input type="password" class="form-control" name="password" id="password-input" value="123456">
-        </div>
+        </div style="color: #ff009b;">
 
-        <button type="submit" class="btn btn-warning btn-lg" id="login">Login</button>
+        <button type="submit" class="btn btn-warning btn-lg" id="login" style="background-color: color: #ff009b;">Login</button>
       </div>
     </fieldset>
     </form>
@@ -98,7 +117,7 @@
     <hr>
 
     <p>Need an account? <a href="/signup">Signup</a></p>
-    <p>Or go to your<a href="/"> profile</a>.</p>
+    <p>Or go to your<a href="/"> profile</a></p>
 
   </div>
 

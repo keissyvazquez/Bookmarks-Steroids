@@ -13,6 +13,38 @@
         .form-group{ 
             padding-bottom: 10px; 
          }
+
+         }
+       
+
+        label { 
+          color: white;
+        }
+
+        legend{ 
+            color: white;
+        }
+
+        p{ 
+            color: white;
+        }
+        
+        a{ 
+           color:#ff009b;
+        }
+        
+        html, body, #doc, #page-outer {
+            height: 96%;
+            width: 537px;
+            margin: inherit;
+            background-color: black;
+        }
+
+         h1 {
+            text-align: center;
+            font-weight: 10;
+            color: #ff009b;
+        }
     </style>
 </head>
 <body>
@@ -31,15 +63,15 @@
     <!-- LOGIN FORM -->
     <form action="/signup" method="post">
         <div class="form-group">
-            <label>Email</label>
+            <label style="color:white;">Email</label>
             <input type="text" class="form-control" name="email">
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <label style="color:white;">Password</label>
             <input type="password" class="form-control" name="password">
         </div>
 
-        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+        <button type="submit" class="btn btn-warning btn-lg" style="color: #fff; background-color: #ff009b; border-color: #ff009b;">Signup</button>
     </form>
 
     <hr>
@@ -51,4 +83,6 @@
 
 </div>
 </body>
+    <script src="../public/assets/javascript/script.js"></script>
+    <script src="../public/assets/javascript/jQuery.js"></script>
 </html>

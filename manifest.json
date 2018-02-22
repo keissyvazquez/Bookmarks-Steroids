@@ -7,7 +7,7 @@
 
   "browser_action": {
     "default_icon": "public/assets/img/bookmarksimage.png",
-    "default_popup": "views/signup.html"
+    "default_popup": "views/profile.html"
  
   },
   "permissions": [

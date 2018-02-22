@@ -13,11 +13,10 @@ if(!err) {
 }
 });
 
-module.exports = connection; 
+module.exports = connection;
 
 var express    = require("express");
 var login = require('./routes/loginroutes');
-var userRoutes = require('./routes/userroutes');
 var register = require('./routes/register');
 var bodyParser = require('body-parser');
 var app = express();
@@ -39,27 +38,29 @@ router.get('/', function(req, res) {
 router.post('/register',login.register);
 router.post('/login',login.login);
 
-// Work goes here
+// API routes starts here
 
-	//user routes 
-router.get('/users', function(req, res){ 
-	connection.query('select * from users', function (error, results, fields){ 
-		if (error) throw error; 
+	//user routes
+router.get('/users', function(req, res){
+	connection.query('select * from users', function (error, results, fields){
+		if (error) throw error;
 		res.end(JSON.stringify(results));
 	})
 });
 
 
-//user id 
-router.get('/users/:id', function(req, res){ 
-	connection.query('select * from users where id=?', [req.params.id], function (error, results, fields){ 
-		if (error) throw error; 
-		res.send(JSON.stringify(results));
+	//user id
+router.get('/users/:id', function(req, res){
+	connection.query('select * from users where id=?', [req.params.id], function (error, results, fields){
+    if (results.length === 0)
+      res.status(404).json({message: "The item does not exist"});
+    else
+      res.json(results[0]);
 	})
 
 });
 
-// add new user
+	// add new user
 router.post('/users', function (req, res) {
    var postData  = req.body;
    connection.query('INSERT INTO users SET ?', postData, function (error, results, fields) {
@@ -69,7 +70,7 @@ router.post('/users', function (req, res) {
 });
 
 
-// // to update user
+	// to update user
 router.put('/users/:id', function (req, res) {
 	console.log("Putting new user data");
 	console.log(req.params);
@@ -82,7 +83,7 @@ router.put('/users/:id', function (req, res) {
 
 
 
-// router.delete('/users/:id', userRoutes.deleteUserID);
+	// to delete users
 router.delete('/users/:id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `users` WHERE `id`=?', [req.params.id], function (error, results, fields) {
@@ -91,27 +92,26 @@ router.delete('/users/:id', function (req, res) {
  });
 });
 
-// 	//url routes 
-// router.get('/users/:id/bookmarks', userRoutes.getAllBookmarks);
-
-router.get('/urls', function(req, res){ 
-	connection.query('select * from urls', function (error, results, fields){ 
-		if (error) throw error; 
+	// to delete urls
+router.get('/urls', function(req, res){
+	connection.query('select * from urls', function (error, results, fields){
+		if (error) throw error;
 		res.end(JSON.stringify(results));
 	})
 });
-// router.get('/users/:id/bookmarks/:bookmarks', userRoutes.getOneBookmark);
 
-router.get('/urls/:url_id', function(req, res){ 
-	connection.query('select * from urls where url_id=?', [req.params.url_id], function (error, results, fields){ 
-		if (error) throw error; 
-		res.send(JSON.stringify(results));
+	// to get urls
+router.get('/urls/:url_id', function(req, res){
+	connection.query('select * from urls where url_id=?', [req.params.url_id], function (error, results, fields){
+    if (results.length === 0)
+      res.status(404).json({message: "The item does not exist"});
+    else
+      res.json(results[0]);
 	})
 
 });
 
-// // add new bookmark
-// router.post('/users/bookmarks', userRoutes.postBookmark);
+// // add new urls
 router.post('/urls', function (req, res) {
    var postData  = req.body;
    connection.query('INSERT INTO urls SET ?', postData, function (error, results, fields) {
@@ -121,8 +121,7 @@ router.post('/urls', function (req, res) {
 });
 
 
-// // to update bookmark
-// router.put('/users/:id/bookmarks/:bookmarks', userRoutes.putBookmarks);
+// // to update a url
 router.put('/urls/:url_id', function (req, res) {
 	console.log("Putting new urls data");
 	console.log(req.params);
@@ -135,8 +134,7 @@ router.put('/urls/:url_id', function (req, res) {
 
 
 
-// //delete a bookmark
-// router.delete('/users/:id/bookmarks/:bookmarks', userRoutes.deleteBookmark);
+// //delete a url
 router.delete('/urls/:url_id', function (req, res) {
    console.log(req.params);
    connection.query('DELETE FROM `urls` WHERE `url_id`=?', [req.params.url_id], function (error, results, fields) {
@@ -146,7 +144,7 @@ router.delete('/urls/:url_id', function (req, res) {
 });
 
 
-// End Work
+
 
 app.use('/api', router);
 app.listen(5000);

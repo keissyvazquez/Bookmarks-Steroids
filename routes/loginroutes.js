@@ -1,4 +1,4 @@
-var database = require('../server.js')
+var connection = require('../server.js')
 
 exports.register = function(req,res){
   // console.log("req",req.body);
@@ -44,7 +44,7 @@ exports.login = function(req,res){
     if(results.length >0){
       if(results[0].password == password){
         console.log("Password good");
-        res.send({
+        res.redirect({
           "code":200,
           "success":"login sucessfull",
           "location": "profile.html"

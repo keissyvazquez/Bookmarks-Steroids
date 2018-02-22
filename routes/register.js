@@ -9,7 +9,7 @@ exports.register = function(req,res){
     "created":today,
     "modified":today
   }
-  connection.query('INSERT INTO users SET ?',users, function (error, results, fields) {
+  connection.query('INSERT INTO users SET ?', users, function (error, results, fields) {
   if (error) {
     console.log("error ocurred",error);
     res.send({

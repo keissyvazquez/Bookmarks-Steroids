@@ -2,12 +2,16 @@
 <html>
     <link rel="stylesheet" href="../public/assets/css/normalize.css"> <!-- load normalize css -->
     <link rel="stylesheet" href="../public/assets/css/style.css"> <!-- load style -->
-    <link rel="stylesheet" href="../public/assets/css/PersonalizeStyle.css"> <!-- load style -->
 
     <style type="text/css">
       #formGroupExampleInput{ 
             width: 600px;
        }
+
+        html, body, #doc, #page-outer {
+        
+            background-color: black;
+      }
       html{ 
         padding-right: 10px;
         padding-left: 19px;
@@ -25,17 +29,38 @@
         width: 500px;
         height: 200px;
        }
-   body {
-    height: 100%;
-    background-image: url("http://mdbootstrap.com/img/Photos/Others/img%20(42).jpg");
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
+   h1 {
+            text-align: center;
+            font-weight: 10;
+            color: #ff009b;
+        }
+        html { 
+              height: 290px;  
 
-}
+
+         }
+        .btn-warning {
+          color: #fff;
+          background-color: #ff009b;
+          border-color: #ff009b;
+        }
+        label { 
+          color: white;
+         }
+         legend{ 
+            color: white;
+          }
+          p{ 
+            color: white;
+          }
+          a{ 
+            color:#ff009b;
+           }
+        #categoriesAlign{ 
+          padding-bottom: 10px;
+          padding-left: 284px;
+      }
+
 
     </style>
 <head>
@@ -47,6 +72,11 @@
 <body>
 
 <form class="form-inline">
+    <form>
+  <div class="form-group">
+    <label for="formGroupExampleInput">Title of Bookmark</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter">
+  </div>
 
   <form>
   <div class="form-group">
@@ -81,8 +111,13 @@
     <option value="3">Birthday Gifts</option>
 
   </select>
+    <bk>
 </div>
-        <button type="submit" class="btn btn-warning btn-lg">Submit</button>
+<div>
+        <button type="submit" class="btn btn-warning btn-lg" style="color: #fff; background-color: #ff009b; border-color: #ff009b;">Submit</button>
+</div>
 </form>
 </body>
+  <script src="../public/assets/javascript/script.js"></script>
+  <script src="../public/assets/javascript/jQuery.js"></script>
 </html>
