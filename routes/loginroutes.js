@@ -1,5 +1,6 @@
 var connection = require('../server.js')
 
+
 exports.register = function(req,res){
   // console.log("req",req.body);
   var today = new Date();
