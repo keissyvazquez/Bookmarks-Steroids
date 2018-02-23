@@ -32,38 +32,18 @@ exports.login = function(req,res){
   console.log("Logging in");
   var email= req.body.email;
   var password = req.body.password;
-  connection.query('SELECT * FROM users WHERE email = ?',[email], function (error, results, fields) {
-  if (error) {
-    console.log("error ocurred",error);
-    res.send({
-      "code":400,
-      "failed":"error ocurred"
-    })
-  }else{
-    console.log('The solution is: ', results);
-    if(results.length >0){
-      if(results[0].password == password){
-        console.log("Password good");
-        res.redirect({
-          "code":200,
-          "success":"login sucessfull",
-          "location": "profile.html"
-            });
-      }
-      else{
-        console.log("Password bad");
-        res.send({
-          "code":204,
-          "success":"Email and password does not match"
-            });
-      }
+
+  if (!email || !password)
+    res.status(409).json({"message":"Username and Password are required"});
+
+  connection.query('SELECT * FROM users WHERE email = ? AND password = ?',[email, password], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.status(500).json({"message":"something is broken"});
+    } else if (results.length === 0) {
+      res.status(409).json({"message":"Username or Password incorrect"});
+    } else {
+      res.status(200).json({"message":"Username and Password match"});
     }
-    else{
-      res.send({
-        "code":204,
-        "success":"Email does not exits"
-          });
-    }
-  }
   });
 }
