@@ -49,12 +49,12 @@ app.use(function(req, res, next) {
 });
 var router = express.Router();
 // test route
-router.get('/', function(req, res) {
+app.get('/', function(req, res) {
     res.json({ message: 'welcome to our upload module apis' });
 });
 //route to handle user registration
-router.post('/register',login.register);
-router.post('/login',login.login);
+app.post('/register',login.register);
+app.post('/login',login.login);
 
 // API routes starts here
 
@@ -206,9 +206,6 @@ router.delete('/urls/:url_id', function (req, res) {
     }
  });
 });
-
-
-
 
 app.use('/api', passport.authenticate('basic', { session: false }), router);
 app.listen(5000);
