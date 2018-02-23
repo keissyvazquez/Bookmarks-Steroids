@@ -33,17 +33,21 @@ exports.login = function(req,res){
   var email= req.body.email;
   var password = req.body.password;
 
-  if (!email || !password)
-    res.status(409).json({"message":"Username and Password are required"});
+  if (!email || !password) {
+    res.status(409).json({"message":"Email and Password are required"});
+    res.end();
+  }
+
+  console.log(email + " and " + password);
 
   connection.query('SELECT * FROM users WHERE email = ? AND password = ?',[email, password], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.status(500).json({"message":"something is broken"});
     } else if (results.length === 0) {
-      res.status(409).json({"message":"Username or Password incorrect"});
+      res.status(409).json({"message":"Email or Password incorrect"});
     } else {
-      res.status(200).json({"message":"Username and Password match"});
+      res.status(200).json({"message":"Email and Password match"});
     }
   });
 }
