@@ -1,35 +1,22 @@
+// This says to run function when page loads...
+document.body.onload = function() {
+	// ...get the users credentials
+  	chrome.storage.sync.get("value", function(data) {
+  		var credentials = data.value;
+  		// If an error, log and return
+	    if (chrome.runtime.error) {
+			console.log("Error: " + chrome.runtime.error);
+		} else if (credentials && credentials.email && credentials.password ) {
+			// This is good, do something
+		} else {
+			document.location.href= 'login.html';
+		}
+  	});
+}
 
-  $(document).ready(function(){
-    $('#login_form').submit(function(){
-      var emailB = $('#email-input').val();
-      var passwordB = $('#password-input').val();
-      $.ajax({
-        type: 'POST',
-        url: 'http://localhost:5000/login',
-        // dataType: json,
-        data: {
-          email: emailB,
-          password: passwordB,
-        },
-        success: function(result){
-          console.log("Login successful");
-          // this is storing data locally 
-          var Value = this.data
-          chrome.storage.sync.set({'value': Value}, function(){
-            console.log("Storing data locally.");
-            document.location.href= 'profile.html';
-          });
-        },
-
-        error: function(jqXHR, status, errorThrown) {
-          console.log(status + " and " + errorThrown);
-        }
-
-      })
-      return false;
+// This is just for testing! Delete when done
+$("#clearData").click(function() {
+	chrome.storage.sync.clear(function(){
+      console.log("Cleared")
     });
-
-    $('#login').click(function(){
-      $('#login_form').submit()
-    });
-  });
+})

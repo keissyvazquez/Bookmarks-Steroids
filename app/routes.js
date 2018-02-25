@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.html', {
+        res.render('add_bookmark.html', {
             user : req.user 
         });
     });

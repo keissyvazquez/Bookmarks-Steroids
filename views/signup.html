@@ -61,29 +61,37 @@
 
 
     <!-- LOGIN FORM -->
-    <form action="/signup" method="post">
+    <form action="#" method="post">
+        <div class="form-group">
+            <label style="color:white;">First Name</label>
+            <input type="text" class="form-control" name="fName" value="Peter">
+        </div>
+        <div class="form-group">
+            <label style="color:white;">Last Name</label>
+            <input type="text" class="form-control" name="lName" value="Vaz">
+        </div>
         <div class="form-group">
             <label style="color:white;">Email</label>
-            <input type="text" class="form-control" name="email">
+            <input type="text" class="form-control" name="email" value="haha@haha.com">
         </div>
         <div class="form-group">
             <label style="color:white;">Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" value="botchplease">
         </div>
 
-        <button type="submit" class="btn btn-warning btn-lg" style="color: #fff; background-color: #ff009b; border-color: #ff009b;">Signup</button>
+        <button type="submit" class="btn btn-warning btn-lg" id="signupBtn" style="color: #fff; background-color: #ff009b; border-color: #ff009b;">Signup</button>
     </form>
 
     <hr>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
-    <p>Or go <a href="/">to your profile</a>.</p>
+    <p>Already have an account? <a href="login.html">Login</a></p>
+    <p>Or go <a href="add_bookmark.html">to your profile</a>.</p>
 
 </div>
 
 </div>
 </body>
     <script src="../public/assets/javascript/jQuery.js"></script>
-    <script src="../public/assets/javascript/script.js"></script>
+    <script src="../public/assets/javascript/loginScripts.js"></script>
 
 </html>
