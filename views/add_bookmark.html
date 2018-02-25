@@ -69,39 +69,37 @@
     Bookmarks on Steroids
   </title>
   <h1 class="display-1">Bookmarks on Steroids</h1>
-  <button id="clearData">Clear Data</button>
 </head>
 <body>
 
-<form class="form-inline">
-    <form>
+<form class="form-inline" >
+    
   <div class="form-group">
     <label for="formGroupExampleInput">Title of Bookmark</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter">
+    <input type="text" class="form-control" id="tittleBookmark" name="tName" placeholder="Enter" value="TestTitle">
   </div>
 
-  <form>
+  
   <div class="form-group">
     <label for="formGroupExampleInput">Save Bookmark</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter">
+    <input type="text" class="form-control" id="urlBookmark" name="urlName" placeholder="Enter" value="www.test.com">
   </div>
 
-</form>
+
    <br>
         <label for="formGroupExampleInput">Enter Description: </label>
 
       <div class="widget-area no-padding blank">
                 <div class="status-upload">
-                  <form>
-                    <textarea id="descriptionBox" placeholder="Description..." ></textarea>
+                    <textarea id="descriptionBox" name="descriptionText" placeholder="Description..." value="description for test"></textarea>
 
-                  </form>
+                
                 </div><!-- Status Upload  -->
               </div><!-- Widget Area -->
             </div>
       <br>
-<div id="categoriesAlign">  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Catagories</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+<div id="categoriesAlign">  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Categories</label>
+  <select class="custom-select my-1 mr-sm-2" id="categoriesBookmark" name="categoryName" >
     <option id="catagoriesAlign" selected>Choose...</option>
 
     <option value="1">Work</option>
@@ -116,9 +114,15 @@
     <bk>
 </div>
 <div>
-        <button type="submit" class="btn btn-warning btn-lg" style="color: #fff; background-color: #ff009b; border-color: #ff009b;">Submit</button>
+        <button type="submit" class="btn btn-warning btn-lg" style="color: #fff; background-color: #ff009b; border-color: #ff009b;" id="addBookmark">Submit</button>
 </div>
 </form>
+
+<div id="ajaxMessage" style="display: none;"">
+  <p>Your Bookmark has been added. Go to your <a href="desktopprofile.html"> profile</a> or save a<a href="add_bookmark.html"> new bookmark</a>.</p>
+
+</div>
+
 </body>
   <script src="../public/assets/javascript/jQuery.js"></script>
   <script src="../public/assets/javascript/script.js"></script>
