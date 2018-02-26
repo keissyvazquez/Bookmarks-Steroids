@@ -7,11 +7,12 @@
 
   "browser_action": {
     "default_icon": "public/assets/img/bookmarksimage.png",
-    "default_popup": "views/login.html"
+    "default_popup": "views/add_bookmark.html"
 
   },
   "permissions": [
     "activeTab",
+    "tabs",
     "storage",
     "http://*/*"
   ]

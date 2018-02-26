@@ -13,19 +13,12 @@ exports.register = function(req,res){
     "modified":today
   }
   connection.query('INSERT INTO users SET ?',users, function (error, results, fields) {
-  if (error) {
-    console.log("error ocurred",error);
-    res.send({
-      "code":400,
-      "failed":"error ocurred"
-    })
-  }else{
-    console.log('The solution is: ', results);
-    res.send({
-      "code":200,
-      "success":"user registered sucessfully"
-        });
-  }
+    if (error) {
+      console.log("error ocurred",error);
+      res.status(400).json({ "message":"error ocurred" });
+    } else {
+      res.status(201).json({  "message":"user registered sucessfully" });
+    }
   });
 }
 
@@ -34,7 +27,7 @@ exports.login = function(req,res){
   var email= req.body.email;
   var password = req.body.password;
 
-  if (!email || !password) {
+  if (email === undefined || password === undefined) {
     res.status(409).json({"message":"Email and Password are required"});
     res.end();
   }

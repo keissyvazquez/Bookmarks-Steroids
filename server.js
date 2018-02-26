@@ -2,7 +2,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'Welcome01*',
+  password : 'root',
   database : 'bookmarks'
 });
 connection.connect(function(err){
@@ -28,7 +28,6 @@ var validPassword = function(user, password) {
 }
 
 passport.use(new BasicStrategy(function(username, password, done) {
-    console.log("In here working");
     console.log(username + " and " + password);
     connection.query('select * from users where email=?', username, function (error, results, fields){
       if (error) { return done(error); }
@@ -165,9 +164,14 @@ router.get('/urls/:url_id', function(req, res){
 // // add new urls
 router.post('/urls', function (req, res) {
    var postData  = req.body;
+   // Adding user information returned from passport
+   postData.user_id = req.user.id;
+   console.log("Saving Bookmark: " + postData);
    connection.query('INSERT INTO urls SET ?', postData, function (error, results, fields) {
    if (error) {
+     console.log(error);
      res.status(500).json({message:"Internal server error"});
+
    }
    else{
      res.append('Location', '/api/urls/' + results.insertId);
