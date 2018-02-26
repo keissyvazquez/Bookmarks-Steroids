@@ -48,6 +48,10 @@ document.body.onload = function() {
 		}); 
 		return false; 
 	})
-
+	// $("#profileID").click(function(){ 
+	// 	chrome.windows.create(object createData, function(){ 
+	// 		console.log('this works');
+	// 	})
+	// })
 
 }
