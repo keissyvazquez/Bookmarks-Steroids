@@ -31,7 +31,8 @@ const Users = sequelize.define('users', {
 	  id: {
 	    type: Sequelize.INTEGER,
 	    primaryKey: true,
-	    autoIncrement: true
+	    autoIncrement: true,
+	    allowNull: false
 	  },
 	  first_name: {
 	    type: Sequelize.STRING
@@ -55,7 +56,8 @@ const Urls = sequelize.define('urls', {
 	  url_id: {
 	    type: Sequelize.INTEGER,
 	    primaryKey: true,
-	    autoIncrement: true
+	    autoIncrement: true,
+	    allowNull: false
 	  },
 	  user_id: {
 	    type: Sequelize.INTEGER,
