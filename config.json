@@ -3,13 +3,16 @@
     "username": "root",
     "password": "root",
     "database": "bookmarks",
+    "port": 3306,
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "root",
-    "database": "bookmarks",
+    "username": "efvtqwcrvvbkvc",
+    "password": "b4b56e276f88384367435cbb6cc866f02227fed80962b9c6c0cc6d7b926c1558",
+    "database": "d4823mtjmrcjjc",
+    "port": 5432,
+    "host": "ec2-54-225-249-161.compute-1.amazonaws.com",
     "dialect": "postgres"
   }
 }
