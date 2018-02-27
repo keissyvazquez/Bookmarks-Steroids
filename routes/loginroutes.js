@@ -19,9 +19,9 @@ exports.register = function(req,res){
 }
 
 exports.login = function(req,res){
-  console.log("Logging in");
   var email= req.body.email;
   var password = req.body.password;
+  console.log("Logging in with " + email + " and " + password);
 
   if (email === undefined || password === undefined) {
     res.status(409).json({"message":"Email and Password are required"});
@@ -30,6 +30,7 @@ exports.login = function(req,res){
 
   Users.findOne({ where: {email: email, password: password}})
       .then(function (user) {
+        console.log(user);
         if (!user) { 
           res.status(409).json({"message":"Email or Password incorrect"}); 
         } else {
