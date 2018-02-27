@@ -13,13 +13,16 @@ var validPassword = function(user, password) {
 }
 
 passport.use(new BasicStrategy(function(username, password, done) {
+    console.log(username + " and " + password);
     Users.findOne({ where: {email: username}})
       .then(function (user) {
+        console.log(user);
         if (!user) { return done(null, false,  { message: 'Invalid email, user does not exist' }); }
         if (!validPassword(user, password)) { return done(null, false,  { message: 'Invalid password' }); }
         return done(null, user);
       })
       .catch(function(error) {
+        console.log(error);
         return done(error)
       });
 }));

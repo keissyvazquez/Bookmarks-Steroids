@@ -25,7 +25,8 @@
     });
 
     $('#login').click(function(){
-      $('#login_form').submit()
+      $('#login_form').submit();
+      return false;
     });
 
     $("#signupBtn").click(function() {
