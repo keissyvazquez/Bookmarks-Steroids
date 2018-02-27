@@ -35,7 +35,7 @@ document.body.onload = function() {
 		}
 	$.ajax({
 			method: "POST",
-			url: "http://localhost:5000/api/urls",
+			url: window.API_URL + "/api/urls",
 			data: bookmark,
 			beforeSend: function (xhr) {
 			    xhr.setRequestHeader ("Authorization", "Basic " + btoa(credentials.email + ":" + credentials.password));

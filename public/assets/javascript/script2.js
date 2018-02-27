@@ -2,7 +2,7 @@ document.body.onload = function(){
 	var settings = {
 	  "async": true,
 	  "crossDomain": true,
-	  "url": "http://localhost:5000/api/urls/",
+	  "url": window.API_URL + "/api/urls/",
 	  "method": "GET",
 	  "headers": {
 	    "Content-Type": "application/json",

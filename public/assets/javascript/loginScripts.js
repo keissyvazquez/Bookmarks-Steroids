@@ -6,7 +6,7 @@
       }
       $.ajax({
         method: 'POST',
-        url: 'http://localhost:5000/login',
+        url: window.API_URL + '/login',
         data: credentials
       })
       .done(function(result){
@@ -41,7 +41,7 @@
 
       $.ajax({
         method: 'POST',
-        url: 'http://localhost:5000/register',
+        url: window.API_URL + '/register',
         data: userData,
         dataType: "json"
       })
