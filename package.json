@@ -1,0 +1,33 @@
+{
+  "name": "bookmarks-steroids",
+  "version": "1.0.0",
+  "description": "Bookmarks on Steroids HW",
+  "main": "server.js",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.2",
+    "mysql": "^2.15.0",
+    "package.json": "^2.0.1",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "pg": "^7.4.1",
+    "sequelize": "^4.34.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keissyleonardo/Bookmarks-Steroids.git"
+  },
+  "author": "Keissy Leonardo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keissyleonardo/Bookmarks-Steroids/issues"
+  },
+  "homepage": "https://github.com/keissyleonardo/Bookmarks-Steroids#readme"
+}

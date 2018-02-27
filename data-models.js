@@ -1,7 +1,11 @@
+var env       = process.env.NODE_ENV || 'development';
+var config    = require('./config.json')[env];
+
+console.log(config);
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('bookmarks', 'root', 'root', {
-  host: 'localhost',
-  dialect: 'mysql',
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+  host: config.host,
+  dialect: config.dialect,
   operatorsAliases: false,
 
   pool: {

@@ -169,4 +169,5 @@ router.delete('/urls/:url_id', function (req, res) {
 });
 
 app.use('/api', passport.authenticate('basic', { session: false }), router);
-app.listen(5000);
+// process.env.PORT is for Heroku
+app.listen(process.env.PORT || 5000);
