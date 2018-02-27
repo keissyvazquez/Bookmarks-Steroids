@@ -8,6 +8,7 @@ const sequelize = new Sequelize(config.database, config.username, config.passwor
   port: config.port,
   dialect: config.dialect,
   operatorsAliases: false,
+  omitNull: true,
 
   pool: {
     max: 5,
@@ -30,6 +31,7 @@ const Users = sequelize.define('users', {
 	  id: {
 	    type: Sequelize.INTEGER,
 	    primaryKey: true,
+	    autoIncrement: true
 	  },
 	  first_name: {
 	    type: Sequelize.STRING
@@ -53,6 +55,7 @@ const Urls = sequelize.define('urls', {
 	  url_id: {
 	    type: Sequelize.INTEGER,
 	    primaryKey: true,
+	    autoIncrement: true
 	  },
 	  user_id: {
 	    type: Sequelize.INTEGER,
