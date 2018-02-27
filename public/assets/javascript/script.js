@@ -14,13 +14,6 @@ document.body.onload = function() {
 		}
   	});
 
-	// This is just for testing! Delete when done
-	$("#clearData").click(function() {
-		chrome.storage.sync.clear(function(){
-	      console.log("Cleared")
-	    });
-	})
-
 
 	$("#addBookmark").click(function(){
 		var $_btn = $(this);
@@ -33,25 +26,24 @@ document.body.onload = function() {
 			description: $_form.find("textarea[name=descriptionText]").val(),
 			category: $_form.find("select[name=categoryName]").val(),
 		}
-	$.ajax({
-			method: "POST",
-			url: window.API_URL + "/api/urls",
-			data: bookmark,
-			beforeSend: function (xhr) {
-			    xhr.setRequestHeader ("Authorization", "Basic " + btoa(credentials.email + ":" + credentials.password));
-			},
-		}).done(function(result){
-			$("#ajaxMessage").show();
-			$("form").hide();
-		}).fail(function(jqXHR, status, errorThrown){
-			console.log(status + " and " + errorThrown);
-		});
+
+		$.ajax({
+				method: "POST",
+				url: window.API_URL + "/api/urls",
+				data: bookmark,
+				beforeSend: function (xhr) {
+					var authValue = "Basic " + btoa(credentials.email + ":" + credentials.password);
+				    xhr.setRequestHeader ("Authorization", authValue);
+				},
+			}).done(function(result){
+				$("#ajaxMessage").show();
+				$("form").hide();
+			}).fail(function(jqXHR, status, errorThrown){
+				console.log(errorThrown);
+				if (errorThrown === "Unauthorized")
+					document.location.href= 'login.html';
+			});
+
 		return false;
 	})
-	// $("#profileID").click(function(){
-	// 	chrome.windows.create(object createData, function(){
-	// 		console.log('this works');
-	// 	})
-	// })
-
 }

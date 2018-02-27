@@ -14,6 +14,7 @@
     "activeTab",
     "tabs",
     "storage",
+    "https://bookmarks-steroids.herokuapp.com/*",
     "http://*/*"
   ]
 }

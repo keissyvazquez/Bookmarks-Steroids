@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "Welcome01*",
     "database": "bookmarks",
     "port": 3306,
     "host": "localhost",
