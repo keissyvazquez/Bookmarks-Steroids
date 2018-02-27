@@ -4,7 +4,7 @@ var config    = require('./config.json')[env];
 console.log(config);
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(config.database, config.username, config.password, {
-  host: config.host,
+  host: process.env.DATABASE_URL || "localhost",
   dialect: config.dialect,
   operatorsAliases: false,
 

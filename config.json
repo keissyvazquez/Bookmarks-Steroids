@@ -10,7 +10,6 @@
     "username": "root",
     "password": "root",
     "database": "bookmarks",
-    "host": "localhost",
     "dialect": "postgres"
   }
 }
