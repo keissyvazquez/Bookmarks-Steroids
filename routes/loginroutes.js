@@ -1,24 +1,20 @@
-var connection = require('../server.js')
-
+var Users = require('../data-models').Users;
 
 exports.register = function(req,res){
-  // console.log("req",req.body);
+
   var today = new Date();
-  var users={
+  Users.create({
     "first_name":req.body.first_name,
     "last_name":req.body.last_name,
     "email":req.body.email,
     "password":req.body.password,
     "created":today,
     "modified":today
-  }
-  connection.query('INSERT INTO users SET ?',users, function (error, results, fields) {
-    if (error) {
+  }).then(function(user) {
+      res.status(201).json({  "message":"user registered sucessfully" });
+  }).catch(function(error) {
       console.log("error ocurred",error);
       res.status(400).json({ "message":"error ocurred" });
-    } else {
-      res.status(201).json({  "message":"user registered sucessfully" });
-    }
   });
 }
 
@@ -32,16 +28,16 @@ exports.login = function(req,res){
     res.end();
   }
 
-  console.log(email + " and " + password);
-
-  connection.query('SELECT * FROM users WHERE email = ? AND password = ?',[email, password], function (error, results, fields) {
-    if (error) {
-      console.log("error ocurred",error);
-      res.status(500).json({"message":"something is broken"});
-    } else if (results.length === 0) {
-      res.status(409).json({"message":"Email or Password incorrect"});
-    } else {
-      res.status(200).json({"message":"Email and Password match"});
-    }
-  });
+  Users.findOne({ where: {email: email, password: password}})
+      .then(function (user) {
+        if (!user) { 
+          res.status(409).json({"message":"Email or Password incorrect"}); 
+        } else {
+          res.status(200).json({"message":"Email and Password match"});
+        }
+      })
+      .catch(function(error) {
+        console.log("error ocurred",error);
+        res.status(500).json({"message":"something is broken"});
+      });
 }
