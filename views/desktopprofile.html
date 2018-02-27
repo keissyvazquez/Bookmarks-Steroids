@@ -11,12 +11,23 @@
         text-align: center;
          }
          html, body, #doc, #page-outer {
-           
+            width: 350px;
             margin: inherit;
             background-color: black;
+           padding-bottom: 28px;
       }
-      h3, p, h2{ 
-        color:white;
+      h3, h2 {
+    color: #ff009b;
+    cursor: pointer;
+}
+p {
+    color: white;
+}
+      #category{ 
+         color:white;
+         font-size: 31px;
+
+
        }
       .btn-warning {
         color: #fff;
@@ -29,43 +40,43 @@
 </head>
 <h1> All of your Bookmarks </h1>
 <body>
-<div class="row">
-  <div class="col-sm-6">
-        <h2>Categories Here</h2>
-
+<div class="row" id='tableRow'>
+  <div class="col-sm-6" id="column">
+    <details>
+         <summary id="category">Categories Here</summary>
     <div class="card">
       <div class="card-block">
-        <h3 class="card-title">Title Given</h3>
-        <p class="card-text">This is where the description will be listed</p>
-        <button type="submit" class="btn btn-warning btn-lg" id="goButton" style="border-color:# color: #ff009b;">Go Somewhere</button>
+       <h3 id="title">Title Given</h3>
+        <p>This is where the description will be listed</p>
       </div>
       <div class="card-block">
         <h3 class="card-title">Title Given</h3>
         <p class="card-text">This is where the description will be listed</p>
-        <button type="submit" class="btn btn-warning btn-lg" id="goButton" style="border-color:#ff009b color: #ff009b;">Go Somewhere</button>
       </div>
       <div class="card-block">
         <h3 class="card-title">Title Given</h3>
         <p class="card-text">This is where the description will be listed</p>
-        <button type="submit" class="btn btn-warning btn-lg" id="goButton" style="border-color:#ff009b color: #ff009b;">Go Somewhere</button>
       </div>
     </div>
   </div>
   <div class="col-sm-6">
-    <h2>Categories Here</h2>
+      </details>
+       <details>
+         <summary id="category">Categories Here</summary>
     <div class="card">
       <div class="card-block">
         <h3 class="card-title">Title Given</h3>
         <p class="card-text">This is where the description will be listed</p>
-        <button type="submit" class="btn btn-warning btn-lg" id="goButton" style="border-color:#ff009b color: #ff009b;">Go Somewhere</button>
       </div>
       <div class="card-block">
         <h3 class="card-title">Title Given</h3>
-        <p class="card-text">This is where the description will be listed</p>
-        <button type="submit" class="btn btn-warning btn-lg" id="goButton" style="border-color:#ff009b color: #ff009b;">Go Somewhere</button>
+        <p class="card-text" id="description">This is where the description will be listed</p>
       </div>
     </div>
   </div>
+   </details>
 </div>
 </body>
+  <script src="../public/assets/javascript/jQuery.js"></script>
+  <script src="../public/assets/javascript/script2.js"></script>
 </html>

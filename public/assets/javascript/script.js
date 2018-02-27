@@ -23,33 +23,33 @@ document.body.onload = function() {
 
 
 	$("#addBookmark").click(function(){
-		var $_btn = $(this); 
-	      	var $_form = $_btn.parents("form");
+		var $_btn = $(this);
+	    var $_form = $_btn.parents("form");
 
 		var credentials = window.credentials;
-		var bookmark = { 
+		var bookmark = {
 			title: $_form.find("input[name=tName]").val(),
-			url: $_form.find("input[name=urlName]").val(), 
+			url: $_form.find("input[name=urlName]").val(),
 			description: $_form.find("textarea[name=descriptionText]").val(),
-			category: $_form.find("select[name=categoryName]").val(), 
+			category: $_form.find("select[name=categoryName]").val(),
 		}
 	$.ajax({
-			method: "POST", 
-			url: "http://localhost:5000/api/urls", 
-			data: bookmark, 
+			method: "POST",
+			url: "http://localhost:5000/api/urls",
+			data: bookmark,
 			beforeSend: function (xhr) {
 			    xhr.setRequestHeader ("Authorization", "Basic " + btoa(credentials.email + ":" + credentials.password));
 			},
-		}).done(function(result){ 
+		}).done(function(result){
 			$("#ajaxMessage").show();
 			$("form").hide();
-		}).fail(function(jqXHR, status, errorThrown){ 
-			console.log(status + " and " + errorThrown); 
-		}); 
-		return false; 
+		}).fail(function(jqXHR, status, errorThrown){
+			console.log(status + " and " + errorThrown);
+		});
+		return false;
 	})
-	// $("#profileID").click(function(){ 
-	// 	chrome.windows.create(object createData, function(){ 
+	// $("#profileID").click(function(){
+	// 	chrome.windows.create(object createData, function(){
 	// 		console.log('this works');
 	// 	})
 	// })
