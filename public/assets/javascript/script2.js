@@ -9,25 +9,38 @@ document.body.onload = function(){
 	    "Authorization": "Basic anF1aW5vbmVzQHlhaG9vLmNvbTpjbGVhbmluZw==",
 	    "Cache-Control": "no-cache",
 	  	},
-	  "processData": false,
-	  "data": "{\n\t\"name\": \"Another store\"\n}"
+	  "processData": false
 	}; 
 
-	var bookmark = {
-			"title": title,
-			"description": description,
-			"category": category
-	}; 
-	var categoryID = document.getElementById("category"); 
-	var titleID = document.getElementById("title"); 
-	var descriptionID = document.getElementById("description"); 
-	var column = document.getElementById("column"); 
-	var tableRow = document.getElementById("tableRow"); 
 
-   	$.ajax(settings).done(function (response) {
+	$.ajax(settings).done(function (response) {
+   		for (var i = 0; i < response.length; i++){ 
+   			var description = response[i].description; 
+   			var title = response[i].title; 
+   			var url = response[i].url; 
+   			var category = response[i].category;
+
+   			var titleClass = $("<h3 class='card-title'>"); 
+			var descriptionClass = $("<p class='card-text'>"); 
+			var cardB = $("<div class='card-block'>"); 
+			var urlThing = $("<a href='' target='_blank'>");
+
+   			// Url field
+   			urlThing.attr("href", url); 
+   			urlThing.text(title);
+
+   			// Add Url to Title <div>
+   			titleClass.append(urlThing);
+
+   			// Add Title to card <div>
+   			cardB.append(titleClass); 
+
+   			descriptionClass.text(description); 
+   			cardB.append(descriptionClass); 
+
+   			$("#category" + category + " .card").append(cardB)
+   		}
    		 
-   		 
-		  console.log(response);
 		});
 
 } 

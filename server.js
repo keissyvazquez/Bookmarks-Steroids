@@ -2,7 +2,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'Welcome01*',
+  password : 'root',
   database : 'bookmarks'
 });
 connection.connect(function(err){
@@ -134,7 +134,8 @@ router.delete('/users/:id', function (req, res) {
 
 	// to get all urls
   router.get('/urls', function(req, res){
-  	connection.query('select * from urls', function (error, results, fields){
+    var userId  = req.user.id;
+  	connection.query('select * from urls where user_id=?', [userId], function (error, results, fields){
       if (error){
         res.status(500).json({message:"Internal server error"});
       }
@@ -147,7 +148,8 @@ router.delete('/users/:id', function (req, res) {
 
 	// to get urls
 router.get('/urls/:url_id', function(req, res){
-	connection.query('select * from urls where url_id=?', [req.params.url_id], function (error, results, fields){
+  var userId  = req.user.id;
+	connection.query('select * from urls where url_id=? AND user_id=?', [req.params.url_id, userId], function (error, results, fields){
     if (error){
       res.status(500).json({message:"Internal server error"});
     }
