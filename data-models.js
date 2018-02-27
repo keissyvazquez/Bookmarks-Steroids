@@ -87,5 +87,12 @@ const Urls = sequelize.define('urls', {
   	}
 );
 
+Users.sync().then(() => {
+  // Table created
+});
+Urls.sync().then(() => {
+  // Table created
+});
+
 module.exports.Users = Users;
 module.exports.Urls = Urls;
