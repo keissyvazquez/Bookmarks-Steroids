@@ -1,5 +1,14 @@
 // This says to run function when page loads...
 document.body.onload = function() {
+	var $_btn = $(this);
+	var $_form = $_btn.parents("form");
+	var bookmark = {
+	title: $_form.find("input[name=tName]").val(),
+	url: $_form.find("input[name=urlName]").val(),
+	description: $_form.find("textarea[name=descriptionText]").val(),
+	category: $_form.find("select[name=categoryName]").val(),
+}
+
 	// ...get the users credentials
   	chrome.storage.sync.get("value", function(data) {
   		var credentials = data.value;
@@ -13,19 +22,18 @@ document.body.onload = function() {
 			document.location.href= 'login.html';
 		}
   	});
-
+  	chrome.tabs.getSelected(null, function(tab) {
+		        tabId = tab.id;
+		        tabUrl = tab.url;
+		        var url = bookmark.url
+		        $("#urlBookmark").val(tabUrl); 
+		        console.log(tabUrl);
+		    });
 
 	$("#addBookmark").click(function(){
-		var $_btn = $(this);
-	    var $_form = $_btn.parents("form");
+
 
 		var credentials = window.credentials;
-		var bookmark = {
-			title: $_form.find("input[name=tName]").val(),
-			url: $_form.find("input[name=urlName]").val(),
-			description: $_form.find("textarea[name=descriptionText]").val(),
-			category: $_form.find("select[name=categoryName]").val(),
-		}
 
 		$.ajax({
 				method: "POST",

@@ -2,7 +2,6 @@ var express    = require("express");
 var Users = require('./data-models').Users;
 var Urls = require('./data-models').Urls;
 var login = require('./routes/loginroutes');
-var register = require('./routes/register');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var BasicStrategy = require('passport-http').BasicStrategy;
