@@ -1,5 +1,13 @@
 // This says to run function when page loads...
 document.body.onload = function() {
+		var $_btn = $(this);
+	    var $_form = $_btn.parents("form");
+	    	var bookmark = {
+			title: $_form.find("input[name=tName]").val(), 
+			description: $_form.find("textarea[name=descriptionText]").val(),
+			category: $_form.find("select[name=categoryName]").val(),
+		};
+
 	// ...get the users credentials
   	chrome.storage.sync.get("value", function(data) {
   		var credentials = data.value;
@@ -9,6 +17,14 @@ document.body.onload = function() {
 		} else if (credentials && credentials.email && credentials.password ) {
 			// This is good, do something
 			window.credentials = credentials;
+			// get url 
+			 chrome.tabs.getSelected(null, function(tab) {
+		        tabId = tab.id;
+		        tabUrl = tab.url;
+		        $("#urlBookmark").val(tabUrl);
+	
+		    });
+
 		} else {
 			document.location.href= 'login.html';
 		}
@@ -16,17 +32,7 @@ document.body.onload = function() {
 
 
 	$("#addBookmark").click(function(){
-		var $_btn = $(this);
-	    var $_form = $_btn.parents("form");
-
 		var credentials = window.credentials;
-		var bookmark = {
-			title: $_form.find("input[name=tName]").val(),
-			url: $_form.find("input[name=urlName]").val(),
-			description: $_form.find("textarea[name=descriptionText]").val(),
-			category: $_form.find("select[name=categoryName]").val(),
-		}
-
 		$.ajax({
 				method: "POST",
 				url: window.API_URL + "/api/urls",
