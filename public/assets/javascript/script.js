@@ -54,4 +54,8 @@ document.body.onload = function() {
 
 		return false;
 	})
+	$("#logout").click(function(){ 
+		localStorage.clear();
+
+	})
 }
